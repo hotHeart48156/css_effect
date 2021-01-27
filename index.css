@@ -1,0 +1,93 @@
+* {
+    /* 初始化 清除页面原有padding和maring */
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    height: 100vh;
+    /* 渐变色 */
+    background: linear-gradient(#99f, #f99)
+}
+
+body,
+.navbar,
+.navbar ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:all 0.5s;
+    white-space: nowrap;
+
+}
+.navbar{
+    position: relative;
+    padding:20px;
+    background-color: #fff;
+    border-radius: 50px;
+
+}
+.navbar input{
+    width:40px;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+    /* pointer-events: none; */
+
+}
+.navbar span{
+    position: absolute;
+    left: 25px;
+    top: calc(50% - 10px);
+    width: 30px;
+    height: 4px;
+    background-color: #999999;
+    border-radius:15px;
+    pointer-events: none;
+    transition:transform 0.3s ease-in-out 0.3s,top 0.3s ease-in-out;
+
+
+
+}
+.navbar span:nth-child(3){
+    top: calc(50% + 6px);
+
+}
+.navbar ul{
+    width:0;
+    overflow: hidden;
+}
+.navbar li{
+    list-style: none;
+    margin: 0 15px;
+
+}
+.navbar ul li a{
+    /* 取消下划线 */
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+
+
+}
+.navbar ul li a:hover{
+    color: #fb7299
+}
+/* checked当选中复选框是 ~兄弟选择器 */
+.navbar input:checked ~ ul{
+    width: 350px;
+
+}
+.navbar input:checked ~ span:nth-child(2){
+    top: calc(50% - 2px);
+    transform: rotate(-45deg);
+    background-color: #fb7299;
+    transition:top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
+}
+.navbar input:checked ~ span:nth-child(3){
+    top: calc(50% - 2px);
+    transform: rotate(45deg);
+    background-color: #fb7299;
+    transition:top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
+}
