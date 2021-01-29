@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow: hidden;
+    height: 100vh;
+    background-color:#e6f1f9;
+}
+.navbar{
+    position: relative;
+    width: 100vm;
+    height: 100px;
+    background-color: #e6f1f9;
+    box-shadow: 0 10px 50px #c6d9ed;
+
+}
+.navbar input{
+    display: none;
+}
+.navbar label{
+    position: absolute;
+    top: calc(50% - 25px);
+    border: 1px solid rgba(198,217,237,.3);
+    border-radius: 6px;
+    width: 50px;
+    height: 50px;
+    right: 50px;
+    background-color: #e6f1f9;
+    box-shadow: 5px 3px 6px 1px #c6d9ed,-5px -3px 6px 1px #fff;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    /* transition: property duration timing-function delay; */
+    /* transition-property	规定设置过渡效果的 CSS 属性的名称。
+transition-duration	规定完成过渡效果需要多少秒或毫秒。
+transition-timing-function	规定速度效果的速度曲线。
+transition-delay	定义过渡效果何时开始。 */
+
+}
+.navbar label::before,.navbar label::after{
+    content:"";
+    position: absolute;
+    left: 5px;
+    width: 40px;
+    height: 4px;
+    background-color: #042a41;
+    border-radius: 4px;
+}
+.navbar label::before{
+    top:calc(50% - 10px);
+}
+.navbar label::after{
+    top:calc(50% + 6px);
+}
+.navbar input::checked + label{
+    box-shadow: 0 0 0 #fff ,0 0 0 #fff ,5px 3px 6px 1px #c6d9ed inset,-5px -3px 6px 1px #fff inset;
+}
+.navbar input:checked + label::before{
+    top:calc(50% - 2px);
+    transform:rotate(-45deg);
+    transition:top 0.3s ease-out,transform 0.3s ease-out 0.3s;
+
+}
+.navbar input:checked + label::after{
+    top:calc(50% - 2px);
+    transform:rotate(45deg);
+    transition:top 0.3s ease-out,transform 0.3s ease-out 0.3s;
+}
+
+.navbar ul{
+    position: relative;
+    top: 100px;
+    width: 100%;
+    transform-origin: 50% 0 ;
+    transform: scaleY(0);
+}
+.navbar ul li{
+    width: 100%;
+    height: 60px;
+
+}
+.navbar ul li a{
+    display: block;
+    text-decoration: none;
+    font-weight:600;
+    font-size: medium;
+    line-height:66px;
+    text-align: center;
+    color: #042a41;
+    box-shadow: 0 15px 20px #c6d9ed;
+    transition: all 0.3 ease-out;
+}
+.navbar ul li a:hover{
+    box-shadow:0 0 0 #fff ,0 15px 20px #c6d9ed inset;
+}
+.navbar input:checked ~ ul {
+    opacity:1;
+    transform: scaleY(1);
+}
+
+@media (min-width: 768px){
+    .navbar ul{
+        position:static;
+    }
+}
